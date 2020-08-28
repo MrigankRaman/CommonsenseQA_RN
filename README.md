@@ -20,6 +20,9 @@ pip install torch-geometric
 pip install torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
 
 To run vanilla gn:
+
+Ensure you have the correct grounding files stores with you
+
 python newprocess_1.py
 
 python gn.py --encoder-bert-base-uncased -mbs 4 -dlr 1e-3
