@@ -25,4 +25,4 @@ Ensure you have the correct grounding files stores with you
 
 python newprocess_1.py
 
-python gn.py --encoder-bert-base-uncased -mbs 4 -dlr 1e-3
+python gn.py --encoder bert-base-uncased -mbs 4 -dlr 1e-3
