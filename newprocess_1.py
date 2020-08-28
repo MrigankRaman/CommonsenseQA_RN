@@ -11,7 +11,7 @@ from utils.conceptnet import extract_english, construct_graph
 from utils.embedding import glove2npy, load_pretrained_embeddings
 from utils.grounding import create_matcher_patterns, ground
 from utils.paths import find_paths, score_paths, prune_paths, find_relational_paths_from_paths, generate_path_and_graph_from_adj
-from utils.graph_1 import generate_graph, generate_adj_data_from_grounded_concepts, coo_to_normalized
+from utils.graph_q_a_reverse import generate_graph, generate_adj_data_from_grounded_concepts, coo_to_normalized
 from utils.triples import generate_triples_from_adj
 #from construct_cpnet import *
 
