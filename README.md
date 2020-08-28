@@ -18,3 +18,8 @@ pip install torch-spline-conv==latest+cu101 -f https://pytorch-geometric.com/whl
 pip install torch-geometric
 
 pip install torch==1.6.0+cu101 torchvision==0.7.0+cu101 -f https://download.pytorch.org/whl/torch_stable.html
+
+To run vanilla gn:
+python newprocess_1.py
+
+python gn.py --encoder-bert-base-uncased -mbs 4 -dlr 1e-3
