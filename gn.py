@@ -171,7 +171,7 @@ def train(args):
     relation_num, relation_dim = rel_emb.size(0), rel_emb.size(1)
     # print('| num_concepts: {} | num_relations: {} |'.format(concept_num, relation_num))
 
-    device = torch.device("cuda:5" if torch.cuda.is_available() and args.cuda else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() and args.cuda else "cpu")
 
     LMdataset = LMGraphNetDataLoader(args.train_statements, args.train_rel_paths,
                                       args.dev_statements, args.dev_rel_paths,
