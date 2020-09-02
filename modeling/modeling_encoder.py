@@ -1,7 +1,6 @@
 from transformers import AutoModel, AutoConfig
 from transformers import (OPENAI_GPT_PRETRAINED_CONFIG_ARCHIVE_MAP, BERT_PRETRAINED_CONFIG_ARCHIVE_MAP,
-                          XLNET_PRETRAINED_CONFIG_ARCHIVE_MAP, ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP,
-                          ALBERT_PRETRAINED_MODEL_ARCHIVE_MAP)
+                          XLNET_PRETRAINED_CONFIG_ARCHIVE_MAP, ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP)
 
 from utils.data_utils import get_gpt_token_num
 from utils.layers import *
@@ -11,7 +10,7 @@ MODEL_CLASS_TO_NAME = {
     'bert': list(BERT_PRETRAINED_CONFIG_ARCHIVE_MAP.keys()),
     'xlnet': list(XLNET_PRETRAINED_CONFIG_ARCHIVE_MAP.keys()),
     'roberta': list(ROBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP.keys()),
-    'albert': list(ALBERT_PRETRAINED_MODEL_ARCHIVE_MAP.keys()),
+    #'albert': list(ALBERT_PRETRAINED_MODEL_ARCHIVE_MAP.keys()),
     'lstm': ['lstm'],
 }
 
