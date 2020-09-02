@@ -115,6 +115,6 @@ def main(dev_gen_json, train_gen_json, dev_evidences, train_evidences, dev_outpu
     with open('./data/csqa/graph/dev.graph.adj.pk', 'rb') as handle:
         b = pickle.load(handle)
     cids = [b[i][1] for i in range(len(b))]
-    create_tensors(cids, dev_gen_json, 'cpt_pairs_1hop_train_reverse_hybrid.jsonl', dev_evidences, dev_output_graph)
+    create_tensors(cids, dev_gen_json, 'cpt_pairs_1hop_dev_reverse_hybrid.jsonl', dev_evidences, dev_output_graph)
 if __name__ == '__main__':
     main(*sys.argv[1:])
