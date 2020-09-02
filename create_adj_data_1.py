@@ -5,6 +5,7 @@ import json
 import numpy as np
 import torch
 import pickle
+import sys
 from scipy.sparse import csr_matrix, coo_matrix
 def load_resources(cpnet_vocab_path):
     #global concept2id, id2concept, relation2id, id2relation
@@ -104,11 +105,16 @@ def create_tensors(cids, json_path, json_path_2, tensor_path, output_path):
 
     #torch.save(evidence, output_path)
 
-def main():
+def main(dev_gen_json, train_gen_json, dev_evidences, train_evidences, dev_output_graph='adj_dev_all_pairs_hybrid_reverse.pk', train_output_graph = 'adj_train_all_pairs_hybrid_reverse.pk'):
     #create_tensors('cpt_pairs_dev.gen.jsonl.gpt.layer-1.pt', 100, 'dev_evidences_1.pt')
     with open('./data/csqa/graph/train.graph.adj.pk', 'rb') as handle:
         b = pickle.load(handle)
     cids = [b[i][1] for i in range(len(b))]
-    create_tensors(cids, './data/csqa/non_adj_cp_pair_1/cpt_pairs_train_hybrid.gen.jsonl', 'cpt_pairs_1hop_train_reverse_hybrid.jsonl', './data/csqa/non_adj_cp_pair_1/train_evidences_hybrid.pt', 'adj_train_all_pairs_hybrid_reverse.pk')
+    create_tensors(cids, train_gen_json, 'cpt_pairs_1hop_train_reverse_hybrid.jsonl', train_evidences, train_output_graph)
+    
+    with open('./data/csqa/graph/dev.graph.adj.pk', 'rb') as handle:
+        b = pickle.load(handle)
+    cids = [b[i][1] for i in range(len(b))]
+    create_tensors(cids, dev_gen_json, 'cpt_pairs_1hop_train_reverse_hybrid.jsonl', dev_evidences, dev_output_graph)
 if __name__ == '__main__':
-    main()
+    main(*sys.argv[1:])
