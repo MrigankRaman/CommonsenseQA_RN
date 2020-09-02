@@ -73,6 +73,8 @@ def main():
     parser.add_argument('--test_rel_paths', default=f'./data/{args.dataset}/paths/test.relpath.2hop.jsonl')
     parser.add_argument('--train_adj', default=f'adj_train_all_pairs_hybrid_reverse.pk')
     parser.add_argument('--dev_adj', default=f'adj_dev_all_pairs_hybrid_reverse.pk')
+    parser.add_argument('--train_evi', default=f'train_evidences.pt')
+    parser.add_argument('--dev_evi', default=f'dev_evidences.pt')
     parser.add_argument('--test_adj', default=f'./data/{args.dataset}/graph/test.graph.adj.pk')
     parser.add_argument('--train_node_features', default=f'./data/{args.dataset}/features/train.{get_node_feature_encoder(args.encoder)}.features.pk')
     parser.add_argument('--dev_node_features', default=f'./data/{args.dataset}/features/dev.{get_node_feature_encoder(args.encoder)}.features.pk')
@@ -191,7 +193,7 @@ def train(args):
     ###################################################################################################
     train_index = LMdataset.get_train_indexes()
     test_index = LMdataset.get_test_indexes()
-    GraphDataset = GraphDataLoader(args.train_adj, './data/csqa/non_adj_cp_pair_1/train_evidences_hybrid.pt', args.dev_adj, './data/csqa/non_adj_cp_pair_1/dev_evidences_hybrid.pt', args.mini_batch_size, args.eval_batch_size)
+    GraphDataset = GraphDataLoader(args.train_adj, args.train_evi, args.dev_adj, args.test_evi, args.mini_batch_size, args.eval_batch_size)
     train_loader = GraphDataset.train_graph_data(train_index)
     test_loader = GraphDataset.test_graph_data(test_index)
     dev_loader = GraphDataset.dev_graph_data()
